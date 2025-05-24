@@ -32,7 +32,7 @@ class MainPage extends StatelessWidget {
       body: BlocBuilder<MoviesBloc, MoviesState>(
         builder: (context, state) {
           return switch (state) {
-            MoviesInitial() => Center(child: Text(AppStrings.addMovie)),
+            MoviesInitial() => Center(child: Text(AppStrings.addNewMovie)),
             MoviesLoaded(:final data) => ListView.builder(
                 padding: EdgeInsets.symmetric(vertical: 16),
                 itemCount: data.length,
