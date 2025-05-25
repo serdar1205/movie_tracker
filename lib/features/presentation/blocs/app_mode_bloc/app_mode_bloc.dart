@@ -12,9 +12,6 @@ class AppModeBloc extends Bloc<AppModeEvent, AppModeState> {
 
   AppModeBloc(this.repository) : super(AppModeInitial()) {
     on<GetAppMode>((event, emit) async {
-      final modeStream = repository.getModeStream();
-      final urlStream = repository.getProductionUrlStream();
-
       await emit.forEach<AppModeLoaded>(
         repository.getModeStream().asyncMap((mode) async {
           final url = await repository.getProductionUrlStream().first;
