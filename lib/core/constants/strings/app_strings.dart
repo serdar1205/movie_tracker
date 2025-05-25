@@ -1,5 +1,6 @@
 class AppStrings {
   static const String appName = "Movie Tracker";
+  static const String production = 'Production Mode';
   static const String notFoundPage = "Недоступна эта страница";
   static const String seen = "Просмотрен";
   static const String notSeen = "В планах";

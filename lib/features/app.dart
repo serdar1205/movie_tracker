@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_tracker/core/constants/strings/app_strings.dart';
+import 'package:movie_tracker/features/presentation/blocs/app_mode_bloc/app_mode_bloc.dart';
 import 'package:movie_tracker/features/presentation/blocs/movies_bloc/movies_bloc.dart';
 import '../core/config/routes/app_router.dart';
 import '../core/config/theme/app_theme.dart';
@@ -16,6 +17,7 @@ class AppStart extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider<ThemeCubit>(create: (context) => locator<ThemeCubit>()),
+          BlocProvider<AppModeBloc>(create: (context) => locator<AppModeBloc>()..add(GetAppMode())),
           BlocProvider<MoviesBloc>.value(value: locator<MoviesBloc>()),
         ],
         child: Builder(builder: (context) {

@@ -2,15 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_tracker/core/constants/strings/app_strings.dart';
 import 'package:movie_tracker/features/data/models/movie_model.dart';
+import 'package:movie_tracker/features/presentation/pages/app_mode_page.dart';
 import 'package:movie_tracker/features/presentation/pages/details_page/details_page.dart';
 import 'package:movie_tracker/features/presentation/pages/main_page/main_page.dart';
 import 'routes_path.dart';
 import 'widget_keys_srt.dart';
 
 final goRouter = GoRouter(
-  initialLocation: AppRoutes.mainPage,
+  initialLocation: AppRoutes.appModeCheck,
   navigatorKey: rootNavKey,
   routes: [
+    GoRoute(
+      path: AppRoutes.appModeCheck,
+      builder: (context, state) {
+        return AppModePage();
+      },
+    ),
     GoRoute(
       path: AppRoutes.mainPage,
       builder: (context, state) {
